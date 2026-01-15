@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Gamified Stroop Test</title>
+   <style>
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+   
+     body {
+       font-family: Poppins, sans-serif;
+       background-color: #fdf6ec; 
+       text-align: center;
+       height: 100vh;
+       margin: 0;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+     }
+
+     h1 {
+       font-size: 3em;
+       color: black; 
+       margin-bottom: 10px;
+     }
+
+     p {
+       font-size: 1.5em;
+       color: black; 
+       margin-bottom: 30px;
+     }
+
+     .btn {
+       background-color: #8b5e3c;
+       border: none;
+       padding: 12px 30px;
+       font-size: 1.1em;
+       border-radius: 30px;
+       cursor: pointer;
+       transition: 0.3s;
+       color: #fffaf0;
+       margin: 10px;
+     }
+
+     .btn:hover {
+       background-color: #a97455; 
+       color: #2b1a0b; 
+     }
+
+     #levels {
+       display: flex;
+       justify-content: center;
+       gap: 40px; /* space between buttons */
+       margin-top: 20px;
+     } 
+
+     .level {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+     }
+
+     .option {
+       display: none;
+       margin-top: 10px;
+     }
+
+     .option a {
+       background-color: #c49a6c;
+       color: white;
+       padding: 8px 20px;
+       border-radius: 20px;
+       text-decoration: none;
+       transition: 0.3s;
+       font-size: 0.95em;
+     }
+
+     .option a:hover {
+       background-color: #b07c4e;
+     }
+
+     .back-btn {
+       position: absolute;
+       top: 20px;
+       left: 20px;
+       font-size: 1em;
+       padding: 8px 20px;
+       border-radius: 20px;
+       background-color: #8b5e3c;
+       color: #fffaf0;
+       border: none;
+       cursor: pointer;
+       transition: 0.3s;
+     }
+
+     .back-btn:hover {
+       background-color: #a97455;
+       color: #2b1a0b;
+     }
+   </style>
+  </head>
+  <body>
+    <button class="back-btn" onclick="history.back()">Back</button>
+    <h1>Gamified Stroop Test</h1>
+    <p>LET'S ENHANCE YOUR MIND!</p>
+
+    <div id="levels">
+      <div class="level">
+        <button class="btn" onclick="toggleOption('easy-option')">EASY</button>
+        <div id="easy-option" class="option">
+          <a href="level 1.html">Level 1</a>
+        </div>
+      </div>
+
+      <div class="level">
+        <button class="btn" onclick="toggleOption('medium-option')">MEDIUM</button>
+        <div id="medium-option" class="option">
+          <a href="level 2.html">Level 2</a>
+          <a href="level 3.html">Level 3</a>
+        </div>
+      </div>
+
+      <div class="level">
+        <button class="btn" onclick="toggleOption('hard-option')">HARD</button>
+        <div id="hard-option" class="option">
+          <a href="level 4.html">Level 4</a>
+           <a href="level 5.html">Level 5</a>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      function toggleOption(id) {
+        const option = document.getElementById(id);
+        const all = document.querySelectorAll('.option');
+
+        
+        all.forEach(opt => {
+          if (opt.id !== id) opt.style.display = 'none';
+        });
+
+        
+        option.style.display = option.style.display === 'block' ? 'none' : 'block';
+      }
+    </script>
+  </body>
+</html>
